@@ -10,10 +10,14 @@ const userSchema = new Schema(
 		locations: [
 			{
 				location: String,
-				date: String,
+				date: Date,
 				time: String
 			}
-		]
+		],
+		isDelivered: {
+			type: Boolean,
+			default: false
+		}
 	},
 	{ timestamps: true }
 )
