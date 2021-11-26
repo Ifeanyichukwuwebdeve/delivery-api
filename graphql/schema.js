@@ -11,6 +11,7 @@ module.exports = buildSchema(`
 
   ${auth.createUserInput}
   ${parcel.parcelInput}
+  ${parcel.addParcelInput}
 
   type RootQuery {
     ${auth.users}
@@ -21,6 +22,7 @@ module.exports = buildSchema(`
   type RootMutation {
     ${auth.userMutaion}
     ${parcel.addParcel}
+    ${parcel.addLocationOfParcel}
   }
 
   schema {

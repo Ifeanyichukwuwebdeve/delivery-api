@@ -16,6 +16,7 @@ exports.singleparcel = `
 
 exports.locations = `
   type Location {
+    _id: ID!
     location: String!
     date: String!
     time: String!
@@ -30,6 +31,19 @@ exports.parcelInput = `
   }
 `
 
+exports.addParcelInput = `
+  input AddParcelInput {
+    parcelId: ID!
+    location: String!
+    date: String!
+    time: String!
+  }
+`
+
 exports.addParcel = `
-  addParcel(parcelInput: ParcelInput): Parcel!
+  addParcel(parcelInput: ParcelInput!): Parcel!
+`
+
+exports.addLocationOfParcel = `
+  addLocation(addParcelInput: AddParcelInput!): Parcel!
 `

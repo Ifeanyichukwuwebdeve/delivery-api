@@ -18,6 +18,15 @@ const isEmail = (email) => {
 	)
 }
 
+const populateParcel = (parcel) => {
+	const result = {
+		...parcel._doc,
+		date: dateToString(parcel.locations.map((location) => location.date))
+	}
+	return result
+}
+
 module.exports = {
-	checkEmail
+	checkEmail,
+	populateParcel
 }
