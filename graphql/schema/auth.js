@@ -1,4 +1,3 @@
-
 exports.User = `
   type User {
     _id: ID!
@@ -12,7 +11,6 @@ exports.authData = `
   type AuthData {
     userId: ID!
     token: String!
-    password: String
     tokenExpiration: Int!
   }
 `

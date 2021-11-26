@@ -14,6 +14,10 @@ exports.singleparcel = `
   singleParcel(parcelId: ID!): Parcel
 `
 
+exports.parcelDelivered = `
+  parcelDelivered(parcelId: ID!): Parcel
+`
+
 exports.locations = `
   type Location {
     _id: ID!

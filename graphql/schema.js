@@ -18,6 +18,7 @@ module.exports = buildSchema(`
     ${auth.login}
     ${parcel.parcels}
     ${parcel.singleparcel}
+    ${parcel.parcelDelivered}
   }
   type RootMutation {
     ${auth.userMutaion}

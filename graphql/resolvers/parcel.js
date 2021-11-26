@@ -17,6 +17,19 @@ module.exports = {
 	singleParcel: async ({ parcelId }) => {
 		try {
 			const parcel = await Parcel.findById(parcelId)
+			if (!parcel) throw new Error("Parcel don't exist")
+			return parcel
+		} catch (error) {
+			throw error
+		}
+	},
+
+	parcelDelivered: async ({ parcelId }) => {
+		try {
+			const parcel = await Parcel.findById(parcelId)
+			if (!parcel) throw new Error("Parcel don't exist")
+			parcel.isDelivered = true
+			await parcel.save()
 			return parcel
 		} catch (error) {
 			throw error
