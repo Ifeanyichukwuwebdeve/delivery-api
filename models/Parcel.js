@@ -10,7 +10,7 @@ const parcelSchema = new Schema(
 		locations: [
 			{
 				location: String,
-				date: Date,
+				date: String,
 				time: String
 			}
 		],

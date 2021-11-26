@@ -7,9 +7,7 @@ module.exports = {
 	parcels: async () => {
 		try {
 			const parcels = await Parcel.find()
-			return parcels.map((parcel) => {
-				return populateParcel(parcel)
-			})
+			return parcels
 		} catch (error) {
 			console.log(error)
 			throw error
@@ -19,7 +17,7 @@ module.exports = {
 	singleParcel: async ({ parcelId }) => {
 		try {
 			const parcel = await Parcel.findById(parcelId)
-			return populateParcel(parcel)
+			return parcel
 		} catch (error) {
 			throw error
 		}
@@ -38,7 +36,7 @@ module.exports = {
 			}
 			savedParcel.locations.push(location)
 			await savedParcel.save()
-			return populateParcel(savedParcel)
+			return savedParcel
 		} catch (error) {
 			throw error
 		}
@@ -56,7 +54,7 @@ module.exports = {
 			// console.log(parcel)
 			parcel.locations.push(location)
 			const result = await parcel.save()
-			return populateParcel(result)
+			return result
 		} catch (error) {
 			throw error
 		}
