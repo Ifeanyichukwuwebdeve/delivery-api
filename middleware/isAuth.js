@@ -24,9 +24,6 @@ module.exports = async (req, res, next) => {
 	if (!decodedToken) {
 		return faildedAuth(req, next)
 	}
-	// console.log(decodedToken)
-	if(decodedToken.admin) req.isAdmin = true
-	if(decodedToken.operator) req.isOperator = true
 	req.isAuth = true
 	req.userId = decodedToken.userId
 	next()

@@ -4,8 +4,9 @@ const { dateToString } = require('../../helpers/date')
 const parcel = require('../../models/Parcel')
 
 module.exports = {
-	parcels: async () => {
+	parcels: async (args, req) => {
 		try {
+			if (!req.isAuth) throw new Error('Not authorized')
 			const parcels = await Parcel.find()
 			return parcels
 		} catch (error) {
@@ -14,8 +15,9 @@ module.exports = {
 		}
 	},
 
-	singleParcel: async ({ parcelId }) => {
+	singleParcel: async ({ parcelId }, req) => {
 		try {
+			if (!req.isAuth) throw new Error('Not authorized')
 			const parcel = await Parcel.findById(parcelId)
 			if (!parcel) throw new Error("Parcel don't exist")
 			return parcel
@@ -24,8 +26,9 @@ module.exports = {
 		}
 	},
 
-	parcelDelivered: async ({ parcelId }) => {
+	parcelDelivered: async ({ parcelId }, req) => {
 		try {
+			if (!req.isAuth) throw new Error('Not authorized')
 			const parcel = await Parcel.findById(parcelId)
 			if (!parcel) throw new Error("Parcel don't exist")
 			parcel.isDelivered = true
@@ -38,6 +41,7 @@ module.exports = {
 
 	addParcel: async (args, req) => {
 		try {
+			if (!req.isAuth) throw new Error('Not authorized')
 			const parcel = new Parcel({
 				parcelName: args.parcelInput.parcelName
 			})
@@ -55,8 +59,9 @@ module.exports = {
 		}
 	},
 
-	addLocation: async (args) => {
+	addLocation: async (args, req) => {
 		try {
+			if (!req.isAuth) throw new Error('Not authorized')
 			const parcel = await Parcel.findById(args.addParcelInput.parcelId)
 			if (!parcel) throw new Error("Parcel don't exist")
 			const location = {

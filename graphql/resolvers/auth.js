@@ -7,7 +7,7 @@ const secret = process.env.JWT_SECRET_KET
 
 module.exports = {
 	users: async (args, req) => {
-		console.log(req.isAdmin)
+		if (!req.isAuth) throw new Error('Not authorized')
 		const users = await User.find()
 		return users
 	},
@@ -46,8 +46,8 @@ module.exports = {
 			if (!user) throw new Error("User with email dosen't exist")
 			const isEqual = await bcrypt.compare(password, user.password)
 			if (!isEqual) throw new Error('Invalid password')
-			const token = jwt.sign({ userId: user._id, admin: user.isAdmin, operator: user.isOperator }, secret, {
-				expiresIn: '3h'
+			const token = jwt.sign({ userId: user._id, email: user.email }, secret, {
+				expiresIn: '30d'
 			})
 
 			return {
