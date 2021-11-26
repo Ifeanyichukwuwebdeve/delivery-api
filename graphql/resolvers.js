@@ -1,7 +1,9 @@
 const authResolver = require('./resolvers/auth')
+const parcelResolver = require('./resolvers/parcel')
 
 const rootResolver = {
-  ...authResolver
+	...authResolver,
+	...parcelResolver
 }
 
 module.exports = rootResolver

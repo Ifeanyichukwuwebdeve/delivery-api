@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const userSchema = new Schema(
+const parcelSchema = new Schema(
 	{
 		parcelName: {
 			type: String,
@@ -22,5 +22,5 @@ const userSchema = new Schema(
 	{ timestamps: true }
 )
 
-const user = mongoose.model('User', userSchema)
-module.exports = user
+const parcel = mongoose.model('Parcel', parcelSchema)
+module.exports = parcel

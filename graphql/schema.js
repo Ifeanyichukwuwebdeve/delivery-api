@@ -10,14 +10,17 @@ module.exports = buildSchema(`
   ${parcel.locations}
 
   ${auth.createUserInput}
+  ${parcel.parcelInput}
 
   type RootQuery {
     ${auth.users}
     ${auth.login}
     ${parcel.parcels}
+    ${parcel.singleparcel}
   }
   type RootMutation {
     ${auth.userMutaion}
+    ${parcel.addParcel}
   }
 
   schema {

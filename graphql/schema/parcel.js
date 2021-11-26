@@ -2,7 +2,7 @@ exports.Parcel = `
   type Parcel {
     _id: ID!
     parcelName: String!
-    location: Location!
+    locations: [Location!]
     isDelivered: Boolean!
   }
 `
@@ -10,15 +10,15 @@ exports.parcels = `
   parcels: [Parcel!]!
 `
 
+exports.singleparcel = `
+  singleParcel(parcelId: ID!): Parcel
+`
+
 exports.locations = `
   type Location {
-    location: [
-      {
-        location: String!
-        date: String!
-        time: String!
-      }
-    ]
+    location: String!
+    date: String!
+    time: String!
   }
 `
 exports.parcelInput = `
@@ -30,6 +30,6 @@ exports.parcelInput = `
   }
 `
 
-exports.addedParcel = `
-  addedParcel(parcelInput: ParcelInput): Parcel!
+exports.addParcel = `
+  addParcel(parcelInput: ParcelInput): Parcel!
 `
