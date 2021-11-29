@@ -22,21 +22,12 @@ module.exports = {
 			const user = new User({
 				name: args.userInput.name,
 				email: args.userInput.email,
-				password: hashedPassword,
-				phone: args.userInput.phone,
-				bank: {
-					accountName: 'Add field',
-					accountNum: 'Add field',
-					bank: 'Add field'
-				},
-				state: args.userInput.state,
-				city: args.userInput.city,
-				address: args.userInput.address,
-				location: 'Updates each time to get current request'
+				password: hashedPassword
 			})
 			const result = await user.save()
 			return { ...result._doc, password: null }
 		} catch (error) {
+			console.log(error)
 			throw error
 		}
 	},
@@ -53,7 +44,7 @@ module.exports = {
 			return {
 				userId: user._id,
 				token: token,
-				tokenExpiration: 3
+				tokenExpiration: 30
 			}
 		} catch (error) {
 			throw error
