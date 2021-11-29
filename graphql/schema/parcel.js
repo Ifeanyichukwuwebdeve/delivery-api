@@ -37,7 +37,6 @@ exports.parcelInput = `
 
 exports.addParcelInput = `
   input AddParcelInput {
-    parcelId: ID!
     location: String!
     date: String!
     time: String!
