@@ -8,10 +8,14 @@ module.exports = buildSchema(`
   ${auth.authData}
   ${parcel.Parcel}
   ${parcel.locations}
+  ${parcel.senderInfo}
+  ${parcel.receiverInfo}
 
   ${auth.createUserInput}
   ${parcel.parcelInput}
   ${parcel.addParcelInput}
+  ${parcel.parcelInputUpdate}
+  ${parcel.updateSenderAndRecevicerInfoInput}
 
   type RootQuery {
     ${auth.users}
@@ -24,6 +28,8 @@ module.exports = buildSchema(`
     ${auth.userMutaion}
     ${parcel.addParcel}
     ${parcel.addLocationOfParcel}
+    ${parcel.updateParcel}
+    ${parcel.updateSenderAndRecevicerInfo}
   }
 
   schema {

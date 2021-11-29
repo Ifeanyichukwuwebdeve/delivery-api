@@ -29,7 +29,7 @@ const parcelSchema = new Schema(
 			phone: String,
 			postCode: Number
 		},
-		recevierInfo: {
+		receiverInfo: {
 			name: String,
 			email: String,
 			phone: String,
