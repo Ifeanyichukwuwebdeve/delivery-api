@@ -7,6 +7,12 @@ const parcelSchema = new Schema(
 			type: String,
 			required: true
 		},
+		transportMethod: String,
+		deliveryDate: String,
+		paymentMethod: String,
+		insurance: String,
+		weight: String,
+		numberOfGoods: Number,
 		locations: [
 			{
 				location: String,
@@ -14,6 +20,24 @@ const parcelSchema = new Schema(
 				time: String
 			}
 		],
+		senderInfo: {
+			name: String,
+			email: String,
+			address: String,
+			city: String,
+			country: String,
+			phone: String,
+			postCode: Number
+		},
+		recevierInfo: {
+			name: String,
+			email: String,
+			phone: String,
+			address: String,
+			city: String,
+			country: String,
+			postCode: Number
+		},
 		isDelivered: {
 			type: Boolean,
 			default: false
