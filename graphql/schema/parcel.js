@@ -34,7 +34,7 @@ exports.senderInfo = `
     city: String!
     country: String!
     phone: String!
-    postCode: Int!
+    postCode: String!
   }
 `
 
@@ -46,7 +46,7 @@ exports.receiverInfo = `
     city: String!
     country: String!
     phone: String!
-    postCode: Int!
+    postCode: String!
   }
 `
 
@@ -76,19 +76,20 @@ exports.parcelInput = `
 		sendersCity: String!
 		sendersCountry: String!
 		sendersPhone: String!
-		sendersPostCode: Int!
+		sendersPostCode: String!
     recevicerName: String,
     recevicerEmail: String,
     recevicerAddress: String,
     recevicerCity: String,
     recevicerCountry: String,
     recevicerPhone: String,
-    recevicerPostCode: Int!
+    recevicerPostCode: String!
   }
 `
 
 exports.parcelInputUpdate = `
   input ParcelInputUpdate {
+    parcelId: ID!
     parcelName: String!
     transportMethod: String!
 		deliveryDate: String!
@@ -101,25 +102,27 @@ exports.parcelInputUpdate = `
 
 exports.updateSenderAndRecevicerInfoInput = `
   input UpdateSenderAndRecevicerInfo {
+    parcelId: ID!
     sendersName: String!
 		sendersEmail: String!
 		sendersAddress: String!
 		sendersCity: String!
 		sendersCountry: String!
 		sendersPhone: String!
-		sendersPostCode: Int!
+		sendersPostCode: String!
     recevicerName: String,
     recevicerEmail: String,
     recevicerAddress: String,
     recevicerCity: String,
     recevicerCountry: String,
     recevicerPhone: String,
-    recevicerPostCode: Int!
+    recevicerPostCode: String!
   }
 `
 
 exports.addParcelInput = `
   input AddParcelInput {
+    parcelId: ID!
     location: String!
     date: String!
     time: String!

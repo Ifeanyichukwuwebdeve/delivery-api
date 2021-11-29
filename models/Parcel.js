@@ -27,7 +27,7 @@ const parcelSchema = new Schema(
 			city: String,
 			country: String,
 			phone: String,
-			postCode: Number
+			postCode: String
 		},
 		receiverInfo: {
 			name: String,
@@ -36,7 +36,7 @@ const parcelSchema = new Schema(
 			address: String,
 			city: String,
 			country: String,
-			postCode: Number
+			postCode: String
 		},
 		isDelivered: {
 			type: Boolean,
