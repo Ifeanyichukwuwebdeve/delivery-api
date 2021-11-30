@@ -39,6 +39,17 @@ module.exports = {
 		}
 	},
 
+	deleteParcel: async ({ parcelId }, req) => {
+		try {
+			if (!req.isAuth) throw new Error('Not authorized')
+			const parcel = await Parcel.findByIdAndDelete(parcelId)
+			if (!parcel) throw new Error("Parcel don't exist")
+			return parcel
+		} catch (error) {
+			throw error
+		}
+	},
+
 	addParcel: async (args, req) => {
 		try {
 			if (!req.isAuth) throw new Error('Not authorized')

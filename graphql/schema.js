@@ -23,6 +23,7 @@ module.exports = buildSchema(`
     ${parcel.parcels}
     ${parcel.singleparcel}
     ${parcel.parcelDelivered}
+    ${parcel.deleteParcel}
   }
   type RootMutation {
     ${auth.userMutaion}

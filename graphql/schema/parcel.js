@@ -26,6 +26,10 @@ exports.parcelDelivered = `
   parcelDelivered(parcelId: ID!): Parcel
   `
 
+exports.deleteParcel = `
+  deleteParcel(parcelId: ID!): Parcel
+  `
+
 exports.senderInfo = `
   type SenderInfo {
     name: String!
