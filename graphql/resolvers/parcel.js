@@ -17,7 +17,7 @@ module.exports = {
 
 	singleParcel: async ({ parcelId }, req) => {
 		try {
-			if (!req.isAuth) throw new Error('Not authorized')
+			// if (!req.isAuth) throw new Error('Not authorized')
 			const parcel = await Parcel.findById(parcelId)
 			if (!parcel) throw new Error("Parcel don't exist")
 			return parcel
