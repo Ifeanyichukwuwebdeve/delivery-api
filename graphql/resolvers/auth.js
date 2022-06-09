@@ -21,7 +21,7 @@ module.exports = {
 			const hashedPassword = await bcrypt.hash(args.userInput.password, 12)
 			const user = new User({
 				name: args.userInput.name,
-				email: args.userInput.email,
+				email: args.userInput.email.toLowerCase(),
 				password: hashedPassword
 			})
 			const result = await user.save()
@@ -33,7 +33,7 @@ module.exports = {
 	},
 	login: async ({ email, password }) => {
 		try {
-			const user = await User.findOne({ email: email })
+			const user = await User.findOne({ email: email.toLowerCase() })
 			if (!user) throw new Error("User with email dosen't exist")
 			const isEqual = await bcrypt.compare(password, user.password)
 			if (!isEqual) throw new Error('Invalid password')
